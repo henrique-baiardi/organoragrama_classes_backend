@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Video } from "./video";
+import { Subject } from "./subject";
 
 
 @Entity('rooms')
@@ -15,5 +16,8 @@ export class Room {
 
     @OneToMany(() => Video, (video) => video.room)
     videos: Video[]
+
+    @OneToMany(() => Subject, subject => subject.rooms)
+    subjects: Subject[]
 
 }
